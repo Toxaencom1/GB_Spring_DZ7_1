@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-<h1>Access Data</h1>
+<h1>Security work demonstration! </h1>
 <h2><span th:text="'Hello, ' + ${username} + '!'"></span></h2>
 
 <form action="/accept" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
 
-    <input type="submit" value="Logout"/>
+    <input type="submit" value="Log out"/>
 </form>
 
-<form action="/accept" sec:authorize="!isAuthenticated()" th:action="@{/logout}" method="post">
+<form action="/accept" sec:authorize="!isAuthenticated()" th:action="@{/login}" method="get">
 
-    <input type="submit" value="Login"/>
+    <input type="submit" value="Log in"/>
 </form>
 <br><br>
 

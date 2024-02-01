@@ -11,14 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ResourceWebController {
 
     @GetMapping("/")
-    public String homePage(Authentication a, Model model){
-        if(a != null){
-            model.addAttribute("username", a.getName());
-            return "index";
-        } else {
-            model.addAttribute("username", "Stranger");
-            return "index";
-        }
+    public String homePage(Authentication authenticator, Model model) {
+        model.addAttribute("username",
+                (authenticator != null) ? authenticator.getName() : "Stranger");
+        return "index";
     }
 
     @GetMapping("/public-data")
