@@ -1,4 +1,4 @@
-package com.taxah.springdz7.config;
+package com.taxah.springdz7.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("css/**", "/", LOGIN, "/logout").permitAll()
                         .requestMatchers("/public-data").authenticated()
-                        .requestMatchers("/private-data").hasRole("ADMIN")
+                        .requestMatchers("/private-data").hasRole(Roles.ADMIN.get())
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
@@ -42,9 +42,11 @@ public class SecurityConfig {
     @Bean
     UserDetailsManager inMemoryUserDetailsManager() {
         var user1 = User.withUsername("user")
-                .password(bCrypt().encode("user")).roles("USER").build();
+                .password(bCrypt().encode("user"))
+                .roles(Roles.USER.get()).build();
         var user2 = User.withUsername("admin")
-                .password(bCrypt().encode("admin")).roles("USER", "ADMIN").build();
+                .password(bCrypt().encode("admin"))
+                .roles(Roles.USER.get(), Roles.ADMIN.get()).build();
         return new InMemoryUserDetailsManager(user1, user2);
     }
 
