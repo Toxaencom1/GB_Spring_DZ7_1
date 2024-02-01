@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.centered-container {
+
+}
+a{
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+.form_button{
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.form_button:hover {
+    background-color: #0056b3;
+}
+
+.card{
+    width: 50%; /* Ширина div */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #fff; /* Цвет фона */
+    border-radius: 10px; /* Закругление краев */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+.submit{
+    width: 15%; /* Ширина div */
+    text-align: center; /* Центрируем содержимое по горизонтали */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #fff; /* Цвет фона */
+    border-radius: 10px; /* Закругление краев */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+h2 {
+    color: #666;
+    text-align: center;
+}

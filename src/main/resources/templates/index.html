@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Data</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<h1>Access Data</h1>
+<h2><span th:text="'Hello, ' + ${username} + '!'"></span></h2>
+
+<form action="/accept" sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+
+    <input type="submit" value="Logout"/>
+</form>
+
+<form action="/accept" sec:authorize="!isAuthenticated()" th:action="@{/logout}" method="post">
+
+    <input type="submit" value="Login"/>
+</form>
+<br><br>
+
+<div sec:authorize="hasRole('USER')">
+    <a href="/public-data">Public data</a><br><br>
+</div>
+<div sec:authorize="hasRole('ADMIN')">
+    <a href="/private-data">Private data</a>
+</div>
+
+
+</body>
+</html>
